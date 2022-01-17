@@ -6,7 +6,6 @@ const getData = async function (numUsers) {
     const usersRequest = await fetch(`https://randomuser.me/api?results=${numUsers}`);
     const data = await usersRequest.json();
     const userResults = data.results;
-    console.log(userResults);
     displayUsers(userResults);
 };
 getData(1);
@@ -14,7 +13,6 @@ getData(1);
 const displayUsers = function (userResults) {
     randomFolks.innerHTML = "";
     userResults.forEach(user => {
-        console.log(user);
         const country = user.location.country;
         const name = `${user.name.first} ${user.name.last}`;
         const imageUrl = user.picture.thumbnail;
